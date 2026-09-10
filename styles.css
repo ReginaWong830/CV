@@ -1,0 +1,80 @@
+/* reset & base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+:root{
+  --bg:#0f172a;--card:#0b1220;--muted:#9aa4b2;--accent:#22c1c3;--accent-2:#fdbb2d;--glass:rgba(255,255,255,0.04)
+}
+
+body{background:linear-gradient(180deg,#071024 0%, #071024 40%, #061223 100%);color:#e6eef6}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-weight:700;color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--muted);text-decoration:none;padding:8px;border-radius:8px}
+.nav-links a:hover{background:var(--glass);color:#fff}
+.nav-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;color:var(--muted)}
+
+/* hero */
+.hero{position:relative;padding-bottom:40px}
+.hero-inner{display:flex;gap:40px;align-items:center;padding:60px 0}
+.hero-text h1{font-size:40px;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 18px}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;border:1px solid rgba(255,255,255,0.06);cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#072033;border:none}
+.btn.ghost{background:transparent;color:var(--accent-2)}
+.cta-row a{margin-right:12px}
+
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);padding:20px;border-radius:14px;width:260px}
+.avatar{height:120px;width:120px;border-radius:14px;background:linear-gradient(135deg,var(--accent),#6ee7b7);box-shadow:0 6px 20px rgba(0,0,0,0.6);margin-bottom:12px}
+.meta{list-style:none;padding:0;margin:0;color:var(--muted)}
+.meta li{padding:6px 0}
+.wave{position:absolute;left:0;right:0;bottom:-1px;height:80px;fill:#071024}
+
+.section{padding:56px 0}
+.section-alt{background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+.reveal{opacity:0;transform:translateY(18px);transition:all 600ms cubic-bezier(.2,.9,.3,1)}
+.reveal.is-visible{opacity:1;transform:none}
+
+.about-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+.highlights{list-style:none;padding:0;margin:0;color:var(--muted)}
+
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill h3{margin:0 0 8px}
+.bar{background:rgba(255,255,255,0.04);height:12px;border-radius:8px;position:relative;overflow:hidden}
+.bar span{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px}
+
+.timeline{display:flex;flex-direction:column;gap:18px}
+.timeline-item{display:flex;gap:18px}
+.timeline-item time{width:120px;color:var(--muted)}
+.timeline-item h3{margin:0}
+
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.project-card{background:var(--card);padding:0;border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .28s ease,box-shadow .28s ease}
+.project-card:focus,.project-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+.project-media{height:140px;background-size:cover;background-position:center}
+.project-body{padding:14px}
+.project-tags{color:var(--muted);font-size:13px}
+
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+.contact-form label{display:block;color:var(--muted);margin-bottom:12px}
+.contact-form input,.contact-form textarea{width:100%;padding:10px;border-radius:8px;border:none;background:rgba(255,255,255,0.03);color:#eaf2ff}
+.form-row{display:flex;gap:12px;margin-top:10px}
+.form-note{color:var(--muted);font-size:13px;margin-top:8px}
+
+.footer{padding:28px 0;color:var(--muted);text-align:center}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-card{width:100%}
+}
+@media (max-width:600px){
+  .projects-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-toggle{display:inline-block}
+}
